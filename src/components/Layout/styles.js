@@ -7,8 +7,12 @@ export const SLayout = styled.div`
 `;
 
 export const SMain = styled.main`
-    padding: calc(${v.smSpacing} * 2);
-
+    display: flex;
+    padding: calc(${v.smSpacing} * 6);
+    top: 0;
+    position: absolute;
+    /* z-index:5; */
+    left: ${({isOpen}) => (isOpen ? '16rem': '10rem')};
     h1 {
         font-size: 14px;
     }

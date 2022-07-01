@@ -1,12 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import Sidebar from "../Sidebar/Sidebar";
 import { SLayout, SMain } from "./styles";
 
 const Layout = ({ children }) => {
+    const [isOpen, setIsOpen] = useState(false)
+    const load = (chilData) => { setIsOpen(chilData) }
     return (
         <SLayout>
-            <Sidebar />
-            <SMain>{children}</SMain>
+            <Sidebar load={load}/>
+            <SMain isOpen={isOpen}>{children}</SMain>
         </SLayout>
     );
 };

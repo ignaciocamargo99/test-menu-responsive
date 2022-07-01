@@ -1,3 +1,3 @@
-import logo from "./logo.svg";
+import logo from "./caja.png";
 
 export const logoSVG = logo;

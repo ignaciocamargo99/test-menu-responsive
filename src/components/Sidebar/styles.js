@@ -4,12 +4,17 @@ import styled from "styled-components";
 import { btnReset, v } from "../../styles/variables";
 
 export const SSidebar = styled.div`
-    width: ${({ isOpen }) => (!isOpen ? `auto` : v.sidebarWidth)};
+    width: ${({ isOpen }) => (!isOpen ? 'auto' : v.sidebarWidth)};
     background: ${({ theme }) => theme.bg};
     height: 100vh;
+    display: flex;
+    flex-direction: column;
     padding: ${v.lgSpacing};
-
-    position: relative;
+    min-height: 100%;
+    position: fixed;
+    /* overflow-y: auto; */
+    /* top: 0; */
+    /* left: 0; */
 `;
 
 export const SSidebarButton = styled.button`
@@ -25,17 +30,17 @@ export const SSidebarButton = styled.button`
     display: flex;
     align-items: center;
     justify-content: center;
+    transition: 0.5s all ease;
     cursor: pointer;
-
     transform: ${({ isOpen }) => (!isOpen ? `rotate(180deg)` : `initial`)};
 `;
 
 export const SLogo = styled.div`
-    width: 52px;
-
+    width: 51px;
+    
     img {
         max-width: 100%;
-        height: auto;
+        height: 100%;
     }
     cursor: pointer;
 
@@ -93,7 +98,7 @@ export const SLink = styled(Link)`
     align-items: center;
     text-decoration: none;
     color: inherit;
-    font-size: 16px;
+    font-size: 15px;
     padding: calc(${v.smSpacing} - 2px) 0;
 `;
 
@@ -118,7 +123,7 @@ export const SLinkNotification = styled.div`
     border-radius: calc(${v.borderRadius} / 2);
     background: ${({ theme }) => theme.primary};
     color: white;
-
+    
     margin-right: ${v.mdSpacing};
 `;
 

@@ -1,4 +1,4 @@
-import React, { useContext, useRef, useState } from "react";
+import React, { useContext, useRef, useState, useEffect } from "react";
 import {
     SDivider,
     SLink,
@@ -32,11 +32,17 @@ import { BsPeople } from "react-icons/bs";
 import { ThemeContext } from "./../../App";
 import { useLocation } from "react-router-dom";
 
-const Sidebar = () => {
+const Sidebar = (props) => {
     const searchRef = useRef(null);
     const { setTheme, theme } = useContext(ThemeContext);
     const [sidebarOpen, setSidebarOpen] = useState(false);
     const { pathname } = useLocation();
+    const load = props.load
+
+    useEffect(() => {
+        setSidebarOpen(sidebarOpen)
+        load(sidebarOpen)
+    }, [load, sidebarOpen])
 
     const searchClickHandler = () => {
         if (!sidebarOpen) {
@@ -71,6 +77,7 @@ const Sidebar = () => {
                 />
             </SSearch>
             <SDivider />
+            <div style={{overflowY: 'auto'}}>
             {linksArray.map(({ icon, label, notification, to }) => (
                 <SLinkContainer key={label} isActive={pathname === to}>
                     <SLink to={to} style={!sidebarOpen ? { width: `fit-content` } : {}}>
@@ -87,15 +94,16 @@ const Sidebar = () => {
                     </SLink>
                 </SLinkContainer>
             ))}
+            </div>
             <SDivider />
-            {secondaryLinksArray.map(({ icon, label }) => (
-                <SLinkContainer key={label}>
-                    <SLink to="/" style={!sidebarOpen ? { width: `fit-content` } : {}}>
-                        <SLinkIcon>{icon}</SLinkIcon>
-                        {sidebarOpen && <SLinkLabel>{label}</SLinkLabel>}
-                    </SLink>
-                </SLinkContainer>
-            ))}
+                {secondaryLinksArray.map(({ icon, label }) => (
+                    <SLinkContainer key={label}>
+                        <SLink to="/" style={!sidebarOpen ? { width: `fit-content` } : {}}>
+                            <SLinkIcon>{icon}</SLinkIcon>
+                            {sidebarOpen && <SLinkLabel>{label}</SLinkLabel>}
+                        </SLink>
+                    </SLinkContainer>
+                ))}
             <SDivider />
             <STheme>
                 {sidebarOpen && <SThemeLabel>Dark Mode</SThemeLabel>}
