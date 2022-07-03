@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import { valueSideBar } from 'styles/variablesSidebar'
+import { valueSideBar } from 'styles/variables'
 
 export const LayoutWrapper = styled.div`
   display: flex;
