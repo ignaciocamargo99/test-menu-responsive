@@ -1,6 +1,15 @@
-import React, { useContext, useRef, useState, useEffect } from "react";
+import { logoSVG } from 'assets/index'
+import { useContext, useEffect, useRef, useState } from 'react'
+import { AiOutlineApartment, AiOutlineHome, AiOutlineLock, AiOutlineSearch, AiOutlineSetting } from 'react-icons/ai'
+import { BsPeople } from 'react-icons/bs'
+import { MdLogout, MdOutlineAnalytics } from 'react-icons/md'
+import { useLocation } from 'react-router-dom'
+import { ThemeContext } from '../../App'
 import {
+    SButton,
+    SContainerItems,
     SDivider,
+    SidebarContainer,
     SLink,
     SLinkContainer,
     SLinkIcon,
@@ -9,151 +18,126 @@ import {
     SLogo,
     SSearch,
     SSearchIcon,
-    SSidebar,
-    SSidebarButton,
     STheme,
     SThemeLabel,
     SThemeToggler,
-    SToggleThumb,
-} from "./styles";
+    SToggleThumb
+} from './styles'
 
-import { logoSVG } from "../../assets";
-
-import {
-    AiOutlineApartment,
-    AiOutlineHome,
-    AiOutlineLeft,
-    AiOutlineSearch,
-    AiOutlineSetting,
-} from "react-icons/ai";
-import { MdLogout, MdOutlineAnalytics } from "react-icons/md";
-import { BsPeople } from "react-icons/bs";
-
-import { ThemeContext } from "./../../App";
-import { useLocation } from "react-router-dom";
-
-const Sidebar = (props) => {
-    const searchRef = useRef(null);
-    const { setTheme, theme } = useContext(ThemeContext);
-    const [sidebarOpen, setSidebarOpen] = useState(false);
-    const { pathname } = useLocation();
-    const load = props.load
+const Sidebar = ({ isOpenSideBar }) => {
+    const searchRef = useRef(null)
+    const { setTheme, theme } = useContext(ThemeContext)
+    const [sidebarOpen, setSidebarOpen] = useState(false)
+    const { pathname } = useLocation()
+    const isOpen = isOpenSideBar
 
     useEffect(() => {
         setSidebarOpen(sidebarOpen)
-        load(sidebarOpen)
-    }, [load, sidebarOpen])
+        isOpen(sidebarOpen)
+    }, [isOpen, sidebarOpen])
 
     const searchClickHandler = () => {
         if (!sidebarOpen) {
-            setSidebarOpen(true);
-            searchRef.current.focus();
+            setSidebarOpen(true)
+            searchRef.current.focus()
         } else {
-            // search functionality
+            console.log(searchRef.current.value)
+            // search some functionality
         }
-    };
+    }
 
     return (
-        <SSidebar isOpen={sidebarOpen}>
-            <>
-                <SSidebarButton isOpen={sidebarOpen} onClick={() => setSidebarOpen((p) => !p)}>
-                    <AiOutlineLeft />
-                </SSidebarButton>
-            </>
+        <SidebarContainer isOpen={sidebarOpen}>
             <SLogo>
                 <img src={logoSVG} alt="logo" />
             </SLogo>
-            <SSearch
-                onClick={searchClickHandler}
-                style={!sidebarOpen ? { width: `fit-content` } : {}}
-            >
+            <SSearch onClick={searchClickHandler} style={!sidebarOpen ? { width: 'fit-content' } : {}}>
                 <SSearchIcon>
                     <AiOutlineSearch />
                 </SSearchIcon>
-                <input
-                    ref={searchRef}
-                    placeholder="Search"
-                    style={!sidebarOpen ? { width: 0, padding: 0 } : {}}
-                />
+                <input ref={searchRef} placeholder="Buscar..." style={!sidebarOpen ? { width: 0, padding: 0 } : {}} />
             </SSearch>
-            <SDivider />
-            <div style={{overflowY: 'auto'}}>
-            {linksArray.map(({ icon, label, notification, to }) => (
-                <SLinkContainer key={label} isActive={pathname === to}>
-                    <SLink to={to} style={!sidebarOpen ? { width: `fit-content` } : {}}>
-                        <SLinkIcon>{icon}</SLinkIcon>
-                        {sidebarOpen && (
-                            <>
-                                <SLinkLabel>{label}</SLinkLabel>
-                                {/* if notifications are at 0 or null, do not display */}
-                                {!!notification && (
-                                    <SLinkNotification>{notification}</SLinkNotification>
-                                )}
-                            </>
-                        )}
-                    </SLink>
-                </SLinkContainer>
-            ))}
-            </div>
-            <SDivider />
-                {secondaryLinksArray.map(({ icon, label }) => (
-                    <SLinkContainer key={label}>
-                        <SLink to="/" style={!sidebarOpen ? { width: `fit-content` } : {}}>
+            <SContainerItems>
+                <SDivider />
+                {primaryLinksArray.map(({ icon, label, notification, to }) => (
+                    <SLinkContainer key={label} isActive={pathname === to}>
+                        <SLink to={to} style={!sidebarOpen ? { width: 'fit-content' } : {}}>
+                            <SLinkIcon>{icon}</SLinkIcon>
+                            {sidebarOpen && (
+                                <>
+                                    <SLinkLabel>{label}</SLinkLabel>
+                                    {/* if notifications are at 0 or null, do not display */}
+                                    {!!notification && <SLinkNotification>{notification}</SLinkNotification>}
+                                </>
+                            )}
+                        </SLink>
+                    </SLinkContainer>
+                ))}
+                <SDivider />
+                {secondaryLinksArray.map(({ icon, label, to }) => (
+                    <SLinkContainer key={label} isActive={pathname === to}>
+                        <SLink to={to} style={!sidebarOpen ? { width: 'fit-content' } : {}}>
                             <SLinkIcon>{icon}</SLinkIcon>
                             {sidebarOpen && <SLinkLabel>{label}</SLinkLabel>}
                         </SLink>
                     </SLinkContainer>
                 ))}
-            <SDivider />
-            <STheme>
-                {sidebarOpen && <SThemeLabel>Dark Mode</SThemeLabel>}
-                <SThemeToggler
-                    isActive={theme === "dark"}
-                    onClick={() => setTheme((p) => (p === "light" ? "dark" : "light"))}
-                >
-                    <SToggleThumb style={theme === "dark" ? { right: "1px" } : {}} />
-                </SThemeToggler>
-            </STheme>
-        </SSidebar>
-    );
-};
+                <SDivider />
+                <STheme>
+                    {sidebarOpen && <SThemeLabel>Modo oscuro</SThemeLabel>}
+                    <SThemeToggler
+                        isActive={theme === 'dark'}
+                        onClick={() => setTheme((p) => (p === 'light' ? 'dark' : 'light'))}
+                    >
+                        <SToggleThumb style={theme === 'dark' ? { right: '1px' } : {}} />
+                    </SThemeToggler>
+                </STheme>
+                <SButton isOpen={sidebarOpen} onClick={() => setSidebarOpen((p) => !p)}>
+                    <AiOutlineLock />
+                </SButton>
+            </SContainerItems>
+        </SidebarContainer>
+    )
+}
 
-const linksArray = [
+const primaryLinksArray = [
     {
-        label: "Home",
+        label: 'Inicio',
         icon: <AiOutlineHome />,
-        to: "/",
-        notification: 0,
+        to: '/',
+        notification: 0
     },
     {
-        label: "Statistics",
-        icon: <MdOutlineAnalytics />,
-        to: "/statistics",
-        notification: 3,
-    },
-    {
-        label: "Customers",
+        label: 'Usuarios',
         icon: <BsPeople />,
-        to: "/customers",
-        notification: 0,
+        to: '/users',
+        notification: 0
     },
     {
-        label: "Diagrams",
-        icon: <AiOutlineApartment />,
-        to: "/diagrams",
-        notification: 1,
+        label: 'Roles',
+        icon: <MdOutlineAnalytics />,
+        to: '/roles',
+        notification: 3
     },
-];
+    {
+        label: 'Clientes',
+        icon: <AiOutlineApartment />,
+        to: '/customers',
+        notification: 1
+    }
+]
 
 const secondaryLinksArray = [
     {
-        label: "Settings",
+        label: 'Configuración',
         icon: <AiOutlineSetting />,
+        to: '/configs'
     },
     {
-        label: "Logout",
+        label: 'Cerrar sesión',
         icon: <MdLogout />,
-    },
-];
+        to: '/logout'
+    }
+]
 
-export default Sidebar;
+export default Sidebar
