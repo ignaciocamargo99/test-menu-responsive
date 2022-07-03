@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import { valueSideBar } from 'styles/variables'
+import { valueSideBar } from 'styles/variablesSidebar'
 
 export const LayoutWrapper = styled.div`
   display: flex;
@@ -19,31 +19,32 @@ export const Main = styled.main`
   min-width: ${({ isOpen }) => (isOpen ? '83vw' : '90vw')};
 
   h1 {
-    font-size: 2vmax;
+    font-size: 2rem;
   }
   h2 {
-    font-size: 1.6vmax;
+    font-size: 1.6rem;
   }
   h3 {
-    font-size: 1.3vmax;
+    font-size: 1.3rem;
   }
   h4 {
-    font-size: 1.1vmax;
+    font-size: 1.1rem;
   }
   h5 {
-    font-size: 0.8vmax;
+    font-size: 0.8rem;
   }
 
   /**
   * Adapt the main content to responsive design
   */
+
   @media (max-width: 1500px) {
     left: ${({ isOpen }) => (isOpen ? '250px' : '90px')};
     min-width: ${({ isOpen }) => (isOpen ? '78vw' : '90vw')};
     max-width: ${({ isOpen }) => (isOpen ? '78vw' : '90vw')};
     table {
-      min-width: ${({ isOpen }) => (isOpen ? '75vw' : '87vw')};
-      max-width: ${({ isOpen }) => (isOpen ? '75vw' : '87vw')};
+      min-width: ${({ isOpen }) => (isOpen ? '75vw' : '88vw')};
+      max-width: ${({ isOpen }) => (isOpen ? '75vw' : '88vw')};
     }
   }
 
@@ -65,6 +66,16 @@ export const Main = styled.main`
       max-width: ${({ isOpen }) => (isOpen ? '0' : '84vw')};
     }
   }
+
+  @media (max-width: 820px) {
+    min-width: ${({ isOpen }) => (isOpen ? '0' : '85vw')};
+    max-width: ${({ isOpen }) => (isOpen ? '0' : '85vw')};
+    table {
+      min-width: ${({ isOpen }) => (isOpen ? '0' : '82vw')};
+      max-width: ${({ isOpen }) => (isOpen ? '0' : '82vw')};
+    }
+  }
+
   @media (max-width: 750px) {
     min-width: ${({ isOpen }) => (isOpen ? '0' : '84vw')};
     max-width: ${({ isOpen }) => (isOpen ? '0' : '84vw')};
@@ -73,14 +84,25 @@ export const Main = styled.main`
       max-width: ${({ isOpen }) => (isOpen ? '0' : '81vw')};
     }
   }
-  @media (max-width: 564px) {
+
+  @media (max-width: 665px) {
+    min-width: ${({ isOpen }) => (isOpen ? '0' : '82vw')};
+    max-width: ${({ isOpen }) => (isOpen ? '0' : '82vw')};
+    table {
+      min-width: ${({ isOpen }) => (isOpen ? '0' : '79vw')};
+      max-width: ${({ isOpen }) => (isOpen ? '0' : '79vw')};
+    }
+  }
+
+  @media (max-width: 588px) {
     min-width: ${({ isOpen }) => (isOpen ? '0' : '81vw')};
     max-width: ${({ isOpen }) => (isOpen ? '0' : '81vw')};
     table {
-      min-width: ${({ isOpen }) => (isOpen ? '0' : '78vw')};
-      max-width: ${({ isOpen }) => (isOpen ? '0' : '78vw')};
+      min-width: ${({ isOpen }) => (isOpen ? '0' : '77vw')};
+      max-width: ${({ isOpen }) => (isOpen ? '0' : '77vw')};
     }
   }
+
   @media (max-width: 480px) {
     min-width: ${({ isOpen }) => (isOpen ? '0' : '77vw')};
     max-width: ${({ isOpen }) => (isOpen ? '0' : '77vw')};
@@ -89,6 +111,7 @@ export const Main = styled.main`
       max-width: ${({ isOpen }) => (isOpen ? '0' : '74vw')};
     }
   }
+
   @media (max-width: 390px) {
     min-width: ${({ isOpen }) => (isOpen ? '0' : '73vw')};
     max-width: ${({ isOpen }) => (isOpen ? '0' : '73vw')};
@@ -97,6 +120,7 @@ export const Main = styled.main`
       max-width: ${({ isOpen }) => (isOpen ? '0' : '70vw')};
     }
   }
+
   @media (max-width: 333px) {
     min-width: ${({ isOpen }) => (isOpen ? '0' : '69vw')};
     max-width: ${({ isOpen }) => (isOpen ? '0' : '69vw')};
@@ -105,6 +129,7 @@ export const Main = styled.main`
       max-width: ${({ isOpen }) => (isOpen ? '0' : '66vw')};
     }
   }
+
   @media (max-width: 290px) {
     min-width: ${({ isOpen }) => (isOpen ? '0' : '65vw')};
     max-width: ${({ isOpen }) => (isOpen ? '0' : '65vw')};
@@ -113,6 +138,7 @@ export const Main = styled.main`
       max-width: ${({ isOpen }) => (isOpen ? '0' : '62vw')};
     }
   }
+
   @media (max-width: 277px) {
     min-width: ${({ isOpen }) => (isOpen ? '0' : '55vw')};
     max-width: ${({ isOpen }) => (isOpen ? '0' : '55vw')};

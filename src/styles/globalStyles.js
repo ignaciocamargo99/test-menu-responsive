@@ -8,7 +8,7 @@ export const GlobalStyle = createGlobalStyle`
     *, *::before, *::after {
         margin: 0;
         box-sizing: border-box;
-        font-size: 0.92vmax;
+        font-size: 0.92rem;
     }
 
     body {
