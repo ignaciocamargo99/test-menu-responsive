@@ -2,7 +2,7 @@ import React from 'react'
 import { Route, Switch } from 'react-router-dom'
 import HomePage from 'components/modules/HomePage'
 import FormUser from 'components/modules/User/components/FormUser'
-import ListUser from 'components/modules/User/ListUser'
+// import ListUser from 'components/modules/User/ListUser'
 const Routes = () => {
   return (
     <Switch>
