@@ -5,11 +5,11 @@ import { Profiles } from '../models/profiles.model'
 import { Users } from '../models'
 
 export const connect = (): void => {
-  const userName: any = process.env.MYSQL_USER
-  const hostName: any = process.env.MYSQL_HOST
-  const database: any = process.env.MYSQL_DATABASE
-  const password = process.env.MYSQL_PASSWORD
-  const dialect: any = process.env.MYSQL_DIALECT
+  const userName: any = 'CEOTECHUSER'
+  const hostName: any = 'immescribanos-dev.mysql.database.azure.com'
+  const database: any = 'imm-escribanos-dev'
+  const password = 'Immde5cr1b4n05'
+  const dialect: any = 'mysql'
 
   const sequelize = new Sequelize(database, userName, password, {
     host: hostName,
