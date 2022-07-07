@@ -1,7 +1,7 @@
 import { Users } from '../../db/models'
 import { UserParameters } from '../../db/models/users.model'
 import { UserRepository } from '../../db/repository'
-import CreateSuccess from '../../success/CreateSuccess'
+// import CreateSuccess from '../../success/CreateSuccess'
 
 export class UserService {
   #userRepository: UserRepository
@@ -14,7 +14,7 @@ export class UserService {
     return await this.#userRepository.getUsers()
   }
 
-  async createuser(user: UserParameters): Promise<CreateSuccess> {
+  async createuser(user: UserParameters): Promise<any> {
     return await this.#userRepository.createUser(user)
   }
 

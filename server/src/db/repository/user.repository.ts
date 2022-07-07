@@ -1,7 +1,7 @@
 import { connect } from '../config/db.config'
 import { UserParameters, Users } from '../models/users.model'
 import bcryptjs = require('bcryptjs')
-import CreateSuccess from '../../success/CreateSuccess'
+// import CreateSuccess from '../../success/CreateSuccess'
 export class UserRepository {
   #db: any = {}
   #userRepository: any
@@ -23,11 +23,11 @@ export class UserRepository {
     }
   }
 
-  async createUser(user: UserParameters): Promise<CreateSuccess> {
+  async createUser(user: UserParameters): Promise<any> {
     try {
       user.password = await bcryptjs.hash(user.password, 8)
       await this.#userRepository.create(user)
-      return new CreateSuccess('user')
+      return 'ok'
     } catch (err) {
       throw new Error(err.message)
     }
