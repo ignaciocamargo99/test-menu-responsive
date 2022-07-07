@@ -7,7 +7,7 @@
     "watch": "tsc -w",
     "prestart": "yarn run build",
     "start": "func start",
-    "dev": "yarn install && concurrently \"yarn start\" \" yarn run watch\"",
+    "dev": "yarn install --ignore-engines && concurrently \"yarn start\" \" yarn run watch\"",
     "test": "mocha --check-leaks --timeout 10000 -r tsconfig-paths/register -r ts-node/register \"src/tests/**/*.spec.ts\""
   },
   "devDependencies": {
