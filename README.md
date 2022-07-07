@@ -1,70 +1,76 @@
-# Getting Started with Create React App
+# IMM Caja de Escribanos
+Proyecto de reingeniería y desarrollo de funcionalidades para la caja de escribanos de la provincia de Córdoba-.
+Fecha de inicio: 01/06/2022
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Comenzando 🚀
 
-## Available Scripts
+_Estas instrucciones te permitirán obtener una copia del proyecto en funcionamiento en tu máquina local para propósitos de desarrollo y pruebas._
 
-In the project directory, you can run:
+Mira **Deployment** para conocer como desplegar el proyecto.
 
-### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### Pre-requisitos 📋
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+_Que cosas necesitas para instalar el software y como instalarlas_
 
-### `npm test`
+```
+Da un ejemplo
+```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Instalación 🔧
 
-### `npm run build`
+_Una serie de ejemplos paso a paso que te dice lo que debes ejecutar para tener un entorno de desarrollo ejecutandose_
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+_Dí cómo será ese paso_
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+```
+Da un ejemplo
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+_Y repite_
 
-### `npm run eject`
+```
+hasta finalizar
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+_Finaliza con un ejemplo de cómo obtener datos del sistema o como usarlos para una pequeña demo_
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Ejecutando las pruebas ⚙️
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+_Explica como ejecutar las pruebas automatizadas para este sistema_
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### Analice las pruebas end-to-end 🔩
 
-## Learn More
+_Explica que verifican estas pruebas y por qué_
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```
+Da un ejemplo
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Y las pruebas de estilo de codificación ⌨️
 
-### Code Splitting
+_Explica que verifican estas pruebas y por qué_
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+```
+Da un ejemplo
+```
 
-### Analyzing the Bundle Size
+## Despliegue 📦
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+_Agrega notas adicionales sobre como hacer deploy_
 
-### Making a Progressive Web App
+## Construido con 🛠️
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+_Menciona las herramientas que utilizaste para crear tu proyecto_
 
-### Advanced Configuration
+* [React JS](https://es.reactjs.org/) - La biblioteca web utilizada
+* [Node JS](https://nodejs.org/es/) - Entorno de ejecución para el lado del servidor
+* [Azure](https://azure.microsoft.com/es-es/) - Usado para las peticiones HTTP, almacenamiento y monitoreo
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+## Autores ✒️
 
-### Deployment
+* **Camargo Sotomayor, Ignacio Ramiro**
+* **Giorda, Marcos**
+* **Giorda, Matías Octavio**
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+---

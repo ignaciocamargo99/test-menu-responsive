@@ -1,0 +1,5 @@
+export { UserRepository } from './user.repository'
+export { RolRepository } from './rol.repository'
+export { PermissionRepository } from './permission.repository'
+export { ProfileRepository } from './profile.repository'
+export { LoginRepository } from './login.repository'
