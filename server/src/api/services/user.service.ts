@@ -2,7 +2,6 @@ import { Users } from '../../db/models'
 import { UserParameters } from '../../db/models/users.model'
 import { UserRepository } from '../../db/repository'
 // import CreateSuccess from '../../success/CreateSuccess'
-
 export class UserService {
   #userRepository: UserRepository
 
